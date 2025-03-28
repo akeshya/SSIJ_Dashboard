@@ -14,6 +14,11 @@ import Retailers from "./screens/Users/Retailers";
 import Employees from "./screens/Users/Employees";
 import Vendors from "./screens/Users/Vendors";
 import Workers from "./screens/Users/Workers";
+import Categotie from "./screens/Categorie/Categotie";
+import Createnotification from "./screens/Notification/Createnotification";
+import PastNotification from "./screens/Notification/PastNotification";
+import AddEmployee from "./screens/Users/AddEmployee";
+import AddWorkers from "./screens/Users/AddWorkers";
 
 const App = () => {
   return (
@@ -32,6 +37,11 @@ const App = () => {
         <Route path="/employees" element={<Employees />} />
         <Route path="/vendors" element={<Vendors />} />
         <Route path="/workers" element={<Workers />} />
+        <Route path="/categorie-list" element={<Categotie />} />
+        <Route path="/createnotification" element={<Createnotification />} />
+        <Route path="/pastNotification" element={<PastNotification />} />
+        <Route path="/add-employee" element={<AddEmployee />} />
+        <Route path="/add-workers" element={<AddWorkers />} />
       </Routes>
     </HeaderProvider>
   );

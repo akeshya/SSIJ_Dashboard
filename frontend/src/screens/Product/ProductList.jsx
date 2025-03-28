@@ -9,10 +9,12 @@ import image5 from "../../assets/banner_Images/image5.jpg";
 import image6 from "../../assets/banner_Images/image6.jpg";
 import image9 from "../../assets/banner_Images/image9.jpg";
 import { FaRegEdit } from "react-icons/fa";
-import { GrNotes } from "react-icons/gr";
 import { CiImport } from "react-icons/ci";
 import { CiExport } from "react-icons/ci";
 import Pagination from "../../components/Pagination";
+import { Link } from "react-router-dom";
+import { MdAdd } from "react-icons/md";
+import { BsFunnel } from "react-icons/bs";
 
 const products = [
   {
@@ -80,27 +82,28 @@ const ProductList = () => {
       <div className="flex-1 p-6 bg-gray-50">
         <Header />
 
-        <div className="flex justify-between gap-2.5 mt-4">
-          <div className="flex gap-2">
-            <h2 className="text-xl mt-0 font-bold mb-4">Newest</h2>
-            <GrNotes className="mt-1.5 text-[#CC7B25FF]" />
+        <div className="flex justify-between  items-center pl-15   gap-2.5 mt-4">
+          <div className="flex gap-2 border rounded-2xl h-[46px] w-[137px] items-center justify-center">
+            <h2 className="text-xl  font-bold ">Newest</h2>
+            <BsFunnel className="mt-1.5 text-[#CC7B25FF]" />
           </div>
           <div className="flex text-[#CC7B25FF] justify-between gap-6 mb-3">
-            <div className="flex text-[#0e0802] justify-between gap-6">
-              <button className="flex items-center gap-1.5  transition">
-                <CiImport className="text-lg" />
-                <span>Import</span>
-              </button>
-            </div>
             <div className="flex text-[#0e0802] justify-between gap-6">
               <button className="flex items-center gap-1.5  transition">
                 <CiExport className="text-lg" />
                 <span>Export</span>
               </button>
             </div>
+            <div className="flex text-[#0e0802] justify-between gap-6">
+              <button className="flex items-center gap-1.5  transition">
+                <CiImport className="text-lg" />
+                <span>Import</span>
+              </button>
+            </div>
             <div className="flex text-[#CC7B25] justify-between gap-6">
-              <button className="flex items-center gap-1.5 border border-amber-300 rounded-2xl px-4 py-2 font-bold text-[#CC7B25] hover:bg-amber-100 transition">
-                <span>+ Add product</span>
+              <button className="flex items-center text-white gap-1.5 border bg-[#CC7B25FF] border-amber-300 rounded-[6px] px-4 py-2 font-bold  hover:bg-amber-300 transition">
+                <MdAdd />
+                <Link to={"/add-product"}>Add product</Link>
               </button>
             </div>
           </div>
@@ -112,21 +115,21 @@ const ProductList = () => {
               <tr className="">
                 <th className="p-2">Product</th>
                 <th className="p-2">Name</th>
-                <th className="p-2">Weight (g)</th>
+                <th className="p-2">Weight (In grams)</th>
                 <th className="p-2">Quantity</th>
                 <th className="p-2">Category</th>
                 <th className="p-2">Product ID</th>
-                <th className="p-2">Icon</th>
+                <th className="p-2 ">Icon</th>
               </tr>
             </thead>
             <tbody>
               {products.map((product, index) => (
                 <tr key={index} className="">
-                  <td className="p-2">
+                  <td className="p-2 rou">
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="w-10 h-10 rounded"
+                      className="w-20 h-14 rounded-md"
                     />
                   </td>
                   <td className="p-2">{product.name}</td>
@@ -138,7 +141,9 @@ const ProductList = () => {
                     </span>
                   </td>
                   <td className="p-2">{product.id}</td>
-                  <td className="p-2">{<FaRegEdit />}</td>
+                  <td className="p-2 ">
+                    {<FaRegEdit className="fill-[#CC7B25FF]" />}
+                  </td>
                 </tr>
               ))}
             </tbody>

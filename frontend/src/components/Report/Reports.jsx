@@ -1,8 +1,8 @@
 import React from "react";
 import { FaRegEdit } from "react-icons/fa";
-import Pagination from "../components/Pagination";
-import Sidebar from "../components/Sidebar";
-import Header from "../components/Header";
+import Pagination from "../../components/Pagination";
+import Sidebar from "../../components/Sidebar";
+import Header from "../../components/Header";
 
 const data = [
   {

@@ -11,6 +11,7 @@ import { IoSettings } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { HeaderContext } from "../Contexts/HeaderContext";
 import { BsChevronBarExpand } from "react-icons/bs";
+import { LuClock8 } from "react-icons/lu";
 
 const Sidebar = () => {
   // Get selected state and setSelected function from HeaderContext
@@ -22,6 +23,8 @@ const Sidebar = () => {
     isReportOpen: false,
     isOrder: false,
     isUsers: false,
+    isCategories: false,
+    isNotification: false,
   });
 
   // Function to handle selection of a menu item
@@ -165,12 +168,12 @@ const Sidebar = () => {
           </div>
           <div
             className={`flex items-center gap-2 px-6 py-2 rounded-xl cursor-pointer ${
-              selected === "addProduct" ? "text-amber-500 bg-[#edcda4]" : ""
+              selected === "" ? "text-amber-500 bg-[#edcda4]" : ""
             }`}
-            onClick={() => handleClick("addProduct")} // Set AddProduct as selected
+            onClick={() => handleClick("")} // Set AddProduct as selected
           >
-            <BsChevronBarExpand style={{ transform: "rotate(480deg)" }}  />
-            <Link to="/add-product">Draft</Link>
+            <BsChevronBarExpand style={{ transform: "rotate(480deg)" }} />
+            <Link to="">Draft</Link>
           </div>
         </div>
       )}
@@ -243,23 +246,96 @@ const Sidebar = () => {
         className={`flex items-center gap-2 px-6 py-2 mt-4 rounded-xl cursor-pointer ${
           selected === "Categories" ? "text-amber-500 bg-[#edcda4]" : ""
         }`}
-        onClick={() => handleClick("Categories")} // Set Categories as selected
+        onClick={() => toggleMenuState("isCategories")} // Toggle Users dropdown
       >
         <MdOutlineCalendarViewWeek style={{ transform: "rotate(89deg)" }} />
-        <Link to="/categories">Categories</Link>
+        <span>Categories</span>
+        <button className="ml-auto text-orange-600">
+          {menuOpenState.isCategories ? "" : "9+"}
+          {/* Show notification count if dropdown is closed */}
+        </button>
       </div>
-
+      {menuOpenState.isCategories && (
+        <div className="pl-6 mt-2">
+          <div
+            className={`flex items-center gap-2 px-6 py-2 rounded-xl cursor-pointer $
+          {
+            selected ==="Categorie-list"?"text-amber-500 bg-[#edcda4]":
+          }`}
+            onClick={() => {
+              handleClick("Categorie-list");
+            }} //set Categorie-list is selected
+          >
+            <LuClock8 />
+            <Link to={"/categorie-list"}>Categorie-list</Link>
+          </div>
+          <div
+            className={`flex items-center gap-2 px-6 py-2 rounded-xl cursor-pointer $
+          {
+            selected ==="Categorie-list"?"text-amber-500 bg-[#edcda4]":
+          }`}
+            onClick={() => {
+              handleClick("Categorie-list");
+            }} //set Categorie-list is selected
+          >
+            <LuClock8 />
+            <Link to={"/categorie-list"}>Add New Categorie</Link>
+          </div>
+        </div>
+      )}
       {/* Notifications Menu Item */}
       <div
         className={`flex items-center gap-2 px-6 py-2 mt-4 rounded-xl cursor-pointer ${
           selected === "notifications" ? "text-amber-500 bg-[#edcda4]" : ""
         }`}
-        onClick={() => handleClick("notifications")} // Set Notifications as selected
+        onClick={() => toggleMenuState("isNotification")} // Set Notifications as selected
       >
         <LuMessageSquareMore />
-        <Link to="/Notifications">Notifications</Link>
+        <span>Notifications</span>
+        <button className="ml-auto text-orange-600">
+          {menuOpenState.isNotification ? "" : "9+"}
+          {/* Show notification count if dropdown is closed */}
+        </button>
       </div>
-
+      {menuOpenState.isNotification && (
+        <div className="pl-6 mt-2">
+          <div
+            className={`flex items-center gap-2 px-6 py-2 rounded-xl cursor-pointer ${
+              selected === "notification" ? "text-amber-500 bg-[#edcda4]" : ""
+            }`}
+            onClick={() => {
+              toggleMenuState("isNotification");
+            }}
+          >
+            <PiUsersDuotone />
+            <Link to={"/Createnotification"}>Create Notification</Link>
+          </div>
+          <div
+            className={`flex items-center gap-2 px-6 py-2 rounded-xl cursor-pointer ${
+              selected === "pastNotification"
+                ? "text-amber-500 bg-[#edcda4]"
+                : ""
+            }`}
+            onClick={() => {
+              handleClick("pastNotification");
+            }} // Set Workers as selected
+          >
+            <PiUsersDuotone />
+            <Link to={"/pastNotification"}>Past Notification</Link>
+          </div>
+          <div
+            className={`flex items-center gap-2 px-6 py-2 rounded-xl cursor-pointer ${
+              selected === "draft" ? "text-amber-500 bg-[#edcda4]" : ""
+            }`}
+            onClick={() => {
+              handleClick("draft");
+            }} // Set Vendors as selected
+          >
+            <PiUsersDuotone />
+            <Link to={"/draft"}>Draft</Link>
+          </div>
+        </div>
+      )}
       {/* Settings Menu Item */}
       <div
         className={`flex items-center gap-2 px-6 py-2 mt-4 rounded-xl cursor-pointer ${
