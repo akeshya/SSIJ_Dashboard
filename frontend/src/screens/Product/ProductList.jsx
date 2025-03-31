@@ -83,7 +83,7 @@ const ProductList = () => {
         <Header />
 
         <div className="flex justify-between  items-center pl-15   gap-2.5 mt-4">
-          <div className="flex gap-2 border rounded-2xl h-[46px] w-[137px] items-center justify-center">
+          <div className="flex gap-2 border-2 border-gray-300 rounded-2xl h-[46px] w-[137px] items-center justify-center">
             <h2 className="text-xl  font-bold ">Newest</h2>
             <BsFunnel className="mt-1.5 text-[#CC7B25FF]" />
           </div>

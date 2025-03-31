@@ -9,71 +9,71 @@ import { CiExport } from "react-icons/ci";
 const data = [
   {
     company_name: "Mahesh",
-    weight: "500g", // Changed from manager to weight (grams)
-    orderID: "ORD1234", // Changed from order_value to orderID
+    weight: "500g",
+    orderID: "ORD1234",
     order_date: "10/07/2023",
     status: "New",
   },
   {
     company_name: "Titan Hyd",
-    weight: "650g", // Changed from manager to weight (grams)
-    orderID: "ORD1235", // Changed from order_value to orderID
+    weight: "650g",
+    orderID: "ORD1235",
     order_date: "24/07/2023",
     status: "New",
   },
   {
     company_name: "Kalyan Nellore",
-    weight: "700g", // Changed from manager to weight (grams)
-    orderID: "ORD1236", // Changed from order_value to orderID
+    weight: "700g",
+    orderID: "ORD1236",
     order_date: "08/08/2023",
     status: "In-progress",
   },
   {
     company_name: "GRT Chennai",
-    weight: "750g", // Changed from manager to weight (grams)
-    orderID: "ORD1237", // Changed from order_value to orderID
+    weight: "750g",
+    orderID: "ORD1237",
     order_date: "31/08/2023",
     status: "In-progress",
   },
   {
     company_name: "Mukesh Jewellers",
-    weight: "600g", // Changed from manager to weight (grams)
-    orderID: "ORD1238", // Changed from order_value to orderID
+    weight: "600g",
+    orderID: "ORD1238",
     order_date: "01/05/2023",
     status: "Completed",
   },
   {
     company_name: "StrideFi",
-    weight: "800g", // Changed from manager to weight (grams)
-    orderID: "ORD1239", // Changed from order_value to orderID
+    weight: "800g",
+    orderID: "ORD1239",
     order_date: "10/06/2023",
     status: "Completed",
   },
   {
     company_name: "kishu",
-    weight: "550g", // Changed from manager to weight (grams)
-    orderID: "ORD1240", // Changed from order_value to orderID
+    weight: "550g",
+    orderID: "ORD1240",
     order_date: "10/06/2023",
     status: "Completed",
   },
   {
     company_name: "meena",
-    weight: "400g", // Changed from manager to weight (grams)
-    orderID: "ORD1241", // Changed from order_value to orderID
+    weight: "400g",
+    orderID: "ORD1241",
     order_date: "10/06/2023",
     status: "Completed",
   },
   {
     company_name: "khushi",
-    weight: "300g", // Changed from manager to weight (grams)
-    orderID: "ORD1242", // Changed from order_value to orderID
+    weight: "300g",
+    orderID: "ORD1242",
     order_date: "10/06/2023",
     status: "Completed",
   },
   {
     company_name: "jiya",
-    weight: "850g", // Changed from manager to weight (grams)
-    orderID: "ORD1243", // Changed from order_value to orderID
+    weight: "850g",
+    orderID: "ORD1243",
     order_date: "10/06/2023",
     status: "Completed",
   },

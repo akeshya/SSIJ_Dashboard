@@ -15,7 +15,8 @@ import { LuClock8 } from "react-icons/lu";
 
 const Sidebar = () => {
   // Get selected state and setSelected function from HeaderContext
-  const { selected, setSelected } = useContext(HeaderContext);
+  const { selected, setSelected, setSelectedStatus } =
+    useContext(HeaderContext);
 
   // Local state to handle dropdown menu open/close for Products, Reports, Orders, and Users
   const [menuOpenState, setMenuOpenState] = useState({
@@ -53,7 +54,10 @@ const Sidebar = () => {
         className={`flex items-center gap-2 px-6 py-2 mt-4 rounded-xl cursor-pointer ${
           selected === "dashboard" ? "text-amber-500 bg-[#edcda4]" : ""
         }`}
-        onClick={() => handleClick("dashboard")} // Set Dashboard as selected on click
+        onClick={() => {
+          handleClick("dashboard");
+          setSelectedStatus("Dashboard"); // Set Dashboard as selected
+        }} // Set Dashboard as selected on click
       >
         <RxDashboard />
         <Link to="/">Dashboard</Link>
@@ -69,7 +73,7 @@ const Sidebar = () => {
         <HiNumberedList size={24} />
         <span>Orders</span>
         <button className="ml-auto text-orange-600">
-          {menuOpenState.isOrder ? "" : "9+"}
+          {menuOpenState.isOrder ? "" : ""}
           {/* Show notification count if dropdown is closed */}
         </button>
       </div>
@@ -83,6 +87,7 @@ const Sidebar = () => {
             }`}
             onClick={() => {
               handleClick("Orders");
+              setSelectedStatus("Orders");
             }} // Set Orders as selected
           >
             <HiNumberedList />
@@ -101,7 +106,7 @@ const Sidebar = () => {
         <FaFileAlt size={24} />
         <span>Reports</span>
         <button className="ml-auto text-orange-600">
-          {menuOpenState.isReportOpen ? "" : "9+"}
+          {menuOpenState.isReportOpen ? "" : "9"}
           {/* Show notification count if dropdown is closed */}
         </button>
       </div>
@@ -131,7 +136,7 @@ const Sidebar = () => {
         <AiFillProduct size={24} />
         <span className="ml-2">Products</span>
         <button className="ml-auto text-orange-600">
-          {menuOpenState.isProduct ? "" : "9+"}{" "}
+          {menuOpenState.isProduct ? "" : "9"}{" "}
           {/* Show notification count if dropdown is closed */}
         </button>
       </div>
@@ -188,7 +193,7 @@ const Sidebar = () => {
         <PiUsersDuotone />
         <span>Users</span>
         <button className="ml-auto text-orange-600">
-          {menuOpenState.isUsers ? "" : "9+"}
+          {menuOpenState.isUsers ? "" : ""}
           {/* Show notification count if dropdown is closed */}
         </button>
       </div>
@@ -251,7 +256,7 @@ const Sidebar = () => {
         <MdOutlineCalendarViewWeek style={{ transform: "rotate(89deg)" }} />
         <span>Categories</span>
         <button className="ml-auto text-orange-600">
-          {menuOpenState.isCategories ? "" : "9+"}
+          {menuOpenState.isCategories ? "" : ""}
           {/* Show notification count if dropdown is closed */}
         </button>
       </div>

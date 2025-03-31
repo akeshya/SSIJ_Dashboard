@@ -32,7 +32,7 @@ const employees = [
     name: "Kishan Shree",
     email: "josephanderson@yahoo.com",
     phone: "(717) 633-7150",
-    role: "Developer",
+    role: "Manager",
     city: "Houston",
   },
 ];
@@ -44,20 +44,20 @@ function Employee() {
       <div className="w-screen">
         <Header />
         {/* Main Content */}
-        <div className="flex-1 p-6 bg-gray-50">
+        <div className="flex-1 px-6 mt-5">
           {/* Header */}
 
           <div className="ml-5 text-[16px]">
             <span className="text-[#CC7B25FF]">All(3)</span>
           </div>
 
-          <div className="flex justify-between items-center bg-white p-4 shadow-md mb-4">
-            <div className="flex border gap-1 p-2 rounded w-1/3">
+          <div className="flex justify-between items-center bg-white p-4  mb-4">
+            <div className="flex border  border-gray-300 gap-1 p-2 rounded w-1/3">
               <FiSearch className="mt-1.5 gap-1" />
               <input
                 type="text"
                 placeholder="Search.."
-                //className="border p-2 rounded w-1/3"
+                className="border-0 outline-0"
               />
             </div>
             <div className="flex items-center space-x-4">
@@ -72,12 +72,12 @@ function Employee() {
           </div>
 
           {/* Employee Table */}
-          <div className="bg-white shadow-md p-4 rounded">
-            <h2 className="text-lg font-bold mb-2"></h2>
+          <div className="bg-white rounded border border-gray-200">
+            <h2 className="text-lg font-bold"></h2>
             <table className="w-full border-collapse">
               <thead>
-                <tr className="bg-gray-100 text-[#CC7B25FF]">
-                  <th className="p-2 text-left">User</th>
+                <tr className="bg-gray-100 text-sm font-semibold text-[#CC7B25FF]">
+                  <th className="p-2 text-left ">User</th>
                   <th className="p-2 text-left">Email</th>
                   <th className="p-2 text-left">Phone</th>
                   <th className="p-2 text-left">Role</th>
@@ -87,27 +87,38 @@ function Employee() {
               </thead>
               <tbody>
                 {employees.map((emp, index) => (
-                  <tr key={index} className="border-t">
+                  <tr key={index} className="border-t border-gray-200">
                     <td className="p-2 flex items-center space-x-2">
-                      <img
-                        src={emp.image}
-                        alt={emp.name}
-                        className="w-8 h-8 rounded-full object-cover"
-                      />
-                      <span>{emp.name}</span>
+                      <Link
+                        to={"/employee-details"}
+                        className="p-2 flex items-center space-x-2"
+                      >
+                        <img
+                          src={emp.image}
+                          alt={emp.name}
+                          className="w-8 h-8 rounded-full object-cover"
+                        />
+                        <span>{emp.name}</span>
+                      </Link>
                     </td>
                     <td className="p-2">{emp.email}</td>
                     <td className="p-2">{emp.phone}</td>
                     <td className="p-2">
                       <span
-                        className="px-2 py-1 rounded text-white text-xs"
+                        className="px-2 py-1 rounded-[14px] text-xs font-normal"
                         style={{
                           backgroundColor:
                             emp.role === "Admin"
-                              ? "orange"
+                              ? "#FDF7F2FF"
                               : emp.role === "Editor"
-                              ? "blue"
-                              : "green",
+                              ? "#EEFCFFFF"
+                              : "#E7FFF3FF",
+                          color:
+                            emp.role === "Admin"
+                              ? "#CC7B25FF"
+                              : emp.role === "Editor"
+                              ? "#007A8FFF"
+                              : "#005529FF",
                         }}
                       >
                         {emp.role}

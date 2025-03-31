@@ -9,29 +9,29 @@ import { CiExport } from "react-icons/ci";
 const data = [
   {
     company_name: "Mahesh",
-    weight: "500g", // Changed from manager to weight (grams)
-    orderID: "ORD1234", // Changed from order_value to orderID
+    weight: "500g",
+    orderID: "ORD1234",
     order_date: "10/07/2023",
     status: "New",
   },
   {
     company_name: "Titan Hyd",
-    weight: "650g", // Changed from manager to weight (grams)
-    orderID: "ORD1235", // Changed from order_value to orderID
+    weight: "650g",
+    orderID: "ORD1235",
     order_date: "24/07/2023",
     status: "New",
   },
   {
     company_name: "Kalyan Nellore",
-    weight: "700g", // Changed from manager to weight (grams)
-    orderID: "ORD1236", // Changed from order_value to orderID
+    weight: "700g",
+    orderID: "ORD1236",
     order_date: "08/08/2023",
     status: "In-progress",
   },
   {
     company_name: "GRT Chennai",
-    weight: "750g", // Changed from manager to weight (grams)
-    orderID: "ORD1237", // Changed from order_value to orderID
+    weight: "750g",
+    orderID: "ORD1237",
     order_date: "31/08/2023",
     status: "In-progress",
   },

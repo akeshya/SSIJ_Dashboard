@@ -4,6 +4,7 @@ import Header from "../../components/Header";
 import { FaRegEdit } from "react-icons/fa";
 import { CiExport } from "react-icons/ci";
 import Pagination from "../../components/Pagination";
+import { Link } from "react-router-dom";
 
 export const Retailers = () => {
   const data = [
@@ -155,7 +156,7 @@ export const Retailers = () => {
               {paginatedData.map((item, index) => (
                 <tr key={index} className="hover:bg-gray-100 text-sm">
                   <td className="py-3 px-4 border-b border-gray-200 font-bold text-neutral-900">
-                    {item.company_name}
+                    <Link to={"/retailer-details"}> {item.company_name}</Link>  
                   </td>
                   <td className="py-3 px-4 border-b border-gray-200">
                     {item.user_id}

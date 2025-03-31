@@ -56,9 +56,7 @@ const Pagination = () => {
         {totalResults} results
       </span>
 
-      {/* Pagination buttons */}
       <div className="flex items-center space-x-2">
-        {/* Previous page button */}
         <button
           className="px-2 py-1 text-gray-500 disabled:opacity-50"
           disabled={currentPage === 1}

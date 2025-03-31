@@ -19,6 +19,10 @@ import Createnotification from "./screens/Notification/Createnotification";
 import PastNotification from "./screens/Notification/PastNotification";
 import AddEmployee from "./screens/Users/AddEmployee";
 import AddWorkers from "./screens/Users/AddWorkers";
+import WorkerDetails from "./screens/Users/WorkerDetails";
+import AddVendor from "./screens/Users/AddVendor";
+import RetailerDetails from "./screens/Users/RetailerDetails";
+import EmployeeDetails from "./screens/Users/EmployeeDetails";
 
 const App = () => {
   return (
@@ -42,6 +46,10 @@ const App = () => {
         <Route path="/pastNotification" element={<PastNotification />} />
         <Route path="/add-employee" element={<AddEmployee />} />
         <Route path="/add-workers" element={<AddWorkers />} />
+        <Route path="/worker-details" element={<WorkerDetails />} />
+        <Route path="/add-vendor" element={<AddVendor />} />
+        <Route path="/retailer-details" element={<RetailerDetails />} />
+        <Route path="/employee-details" element={<EmployeeDetails />} />
       </Routes>
     </HeaderProvider>
   );

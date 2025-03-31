@@ -1,133 +1,16 @@
-// import React from "react";
-// import Sidebar from "../../components/Sidebar";
-// import Header from "../../components/Header";
-// import { useState } from "react";
-
-// const AddWorkers = () => {
-//   const [formData, setFormData] = useState({
-//     fullName: "",
-//     phone: "",
-//     email: "",
-//     dob: "",
-//     location: "",
-//     gender: "Male",
-//     address: "",
-//   });
-//   const [googleConnected, setGoogleConnected] = useState(true);
-//   const [whatsappConnected, setWhatsappConnected] = useState(false);
-//   const [instagramConnected, setInstagramConnected] = useState(false);
-//   return (
-//     <div className="flex">
-//       <Sidebar />
-//       <div className="w-screen">
-//         <Header />
-//         <div className="p-6 bg-gray-100 min-h-screen">
-//           <h1 className="text-2xl font-bold mb-4">Add Worker</h1>
-//           <div className="bg-white p-6 shadow-lg rounded-lg">
-//             <div className="grid grid-cols-2 gap-6">
-//               <div>
-//                 <h2 className="font-semibold mb-2">Photo</h2>
-//                 <div className="border p-4 flex flex-col items-center">
-//                   <input type="file" className="hidden" />
-//                   <button className="bg-orange-500 text-white px-4 py-2 rounded">
-//                     Browse Files
-//                   </button>
-//                 </div>
-//               </div>
-//               <div>
-//                 <h2 className="font-semibold mb-2">General Information</h2>
-//                 <input
-//                   className="border p-2 w-full mb-2"
-//                   type="text"
-//                   placeholder="Full Name"
-//                 />
-//                 <input
-//                   className="border p-2 w-full mb-2"
-//                   type="text"
-//                   placeholder="Location"
-//                 />
-//                 <input
-//                   className="border p-2 w-full mb-2"
-//                   type="text"
-//                   placeholder="Phone"
-//                 />
-//                 <input
-//                   className="border p-2 w-full mb-2"
-//                   type="email"
-//                   placeholder="Email"
-//                 />
-//                 <input className="border p-2 w-full mb-2" type="date" />
-//                 <div className="flex gap-4">
-//                   <label>
-//                     <input type="radio" name="gender" value="Male" checked />{" "}
-//                     Male
-//                   </label>
-//                   <label>
-//                     <input type="radio" name="gender" value="Female" /> Female
-//                   </label>
-//                 </div>
-//                 <input
-//                   className="border p-2 w-full mt-2"
-//                   type="text"
-//                   placeholder="Address"
-//                 />
-//               </div>
-//             </div>
-//             <h2 className="font-semibold mt-6 mb-2">Connect</h2>
-//             <div className="flex gap-6">
-//               <label className="flex items-center gap-2">
-//                 <input
-//                   type="checkbox"
-//                   checked={googleConnected}
-//                   onChange={() => setGoogleConnected(!googleConnected)}
-//                 />{" "}
-//                 Google
-//               </label>
-//               <label className="flex items-center gap-2">
-//                 <input
-//                   type="checkbox"
-//                   checked={whatsappConnected}
-//                   onChange={() => setWhatsappConnected(!whatsappConnected)}
-//                 />{" "}
-//                 WhatsApp
-//               </label>
-//               <label className="flex items-center gap-2">
-//                 <input
-//                   type="checkbox"
-//                   checked={instagramConnected}
-//                   onChange={() => setInstagramConnected(!instagramConnected)}
-//                 />{" "}
-//                 Instagram
-//               </label>
-//             </div>
-//             <div className="flex gap-4 mt-6">
-//               <button className="bg-gray-400 text-white px-4 py-2 rounded">
-//                 Cancel
-//               </button>
-//               <button className="bg-orange-500 text-white px-4 py-2 rounded">
-//                 Create
-//               </button>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default AddWorkers;
 import React, { useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import Header from "../../components/Header";
-import image1 from "../../assets/images/profiles/profile-1.png";
+import image1 from "../../assets/images/profiles/profile-3.png";
 import { BsBoxArrowUp } from "react-icons/bs";
 import { FaGoogle } from "react-icons/fa";
 import { FaWhatsappSquare } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-
+import { IoIosInformationCircle } from "react-icons/io";
 import { RiAdminFill } from "react-icons/ri";
+import { HiOutlinePhotograph } from "react-icons/hi";
 
-const AddWorker = () => {
+const EmployeeDetails = () => {
   const [gender, setGender] = useState("Male");
   const [formData, setFormData] = useState({
     fullName: "",
@@ -141,6 +24,7 @@ const AddWorker = () => {
   const [googleConnected, setGoogleConnected] = useState(true);
   const [whatsappConnected, setWhatsappConnected] = useState(false);
   const [instagramConnected, setInstagramConnected] = useState(false);
+  const [generalActive, setGeneralActive] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -178,9 +62,10 @@ const AddWorker = () => {
 
         <div className="mt-4 p-6">
           <div className="grid grid-cols-2 gap-8">
-            <div>
-              <div className="border border-gray-300 rounded-sm pb-8">
+            <div className="w-full">
+              <div className="border border-gray-300 rounded-sm pb-8 w-full">
                 <label className="flex items-center py-4 px-6 text-sm font-medium text-gray-700 border-b border-gray-300">
+                  <HiOutlinePhotograph className="w-5 h-5 text-[#CC7B25FF] mr-2" />
                   Photo
                 </label>
                 <div className="flex items-center space-x-4 px-6 pt-6 mb-8">
@@ -248,21 +133,24 @@ const AddWorker = () => {
               </div>
             </div>
             {/* Right Side: Form Fields */}
-            <div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-800">
-                  General Information
-                </h3>
-                {renderToggleButton(
-                  <div className="flex items-center gap-2">
-                    <span className="w-9 h-9 bg-[#E5FFEEFF] flex items-center justify-center rounded-full">
-                      <FaWhatsappSquare className="fill-[#28AF55FF] w-4 h-4" />
-                    </span>
-                    <span>WhatsApp</span>
-                  </div>,
-                  whatsappConnected,
-                  setWhatsappConnected
-                )}
+            <div className="rounded border-gray-300 border px-8 pt-5 flex-1 w-full">
+              <div className="flex justify-between">
+                <div className="flex items-center  gap-3 ">
+                  <IoIosInformationCircle className="fill-[#CC7B25FF] font-se h-5.5 w-5.5" />
+                  <h3 className="text-lg font-semibold bg-[#FFFFFFFF] text-gray-800 ">
+                    General Information
+                  </h3>
+                </div>
+                <div className="flex items-center  gap-1">
+                  <h3 className="text-lg font-semibold bg-[#FFFFFFFF] text-gray-800 ">
+                    Active
+                  </h3>
+                  {renderToggleButton(
+                    <div className="flex items-center gap-2"></div>,
+                    generalActive,
+                    setGeneralActive
+                  )}
+                </div>
               </div>
               <div className="grid grid-cols-2 gap-4 mt-4">
                 <div>
@@ -368,18 +256,21 @@ const AddWorker = () => {
                   value={formData.address}
                   onChange={handleInputChange}
                   placeholder="Address"
-                  className="mt-1 w-full bg-[#F3F4F6FF] rounded-lg px-3 py-2"
-                  rows="3"
+                  className="mt-1 w-full bg-[#F3F4F6FF] rounded-lg px-3 "
                 ></textarea>
+              </div>
+              <div>
+                <div></div>
               </div>
             </div>
           </div>
+
           <div className="flex justify-center space-x-4 mt-6">
             <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg">
               Cancel
             </button>
-            <button className="bg-orange-500 text-white px-4 py-2 rounded-lg">
-              Create
+            <button className="bg-[#CC7B25FF] text-white px-4 py-2 rounded-lg cursor-pointer hover:bg-[#B66E21FF] transition duration-300">
+              Update
             </button>
           </div>
         </div>
@@ -388,4 +279,4 @@ const AddWorker = () => {
   );
 };
 
-export default AddWorker;
+export default EmployeeDetails;

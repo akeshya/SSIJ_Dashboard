@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import Header from "../../components/Header";
-import { LuUserRound } from "react-icons/lu";
 import { IoIosAlert } from "react-icons/io";
 import { TfiMenuAlt } from "react-icons/tfi";
+import { IoPerson } from "react-icons/io5";
 
 const AddEmployee = () => {
   const [isOn, setIsOn] = useState(false); // Declare the state for the toggle button
@@ -19,10 +19,10 @@ const AddEmployee = () => {
         <Header />
 
         <div className=" w-full max-w-3xl mx-6 mt-6">
-          <div className="p-6 bg-white shadow-lg">
-            <div className="flex gap-2.5 text-xl font-semibold mb-4">
+          <div className="p-6 bg-white border border-gray-300">
+            <div className="flex gap-2.5 text-xl font-semibold mb-4 ">
               <IoIosAlert className="mt-1.5 fill-[#CC7B25FF]" />
-              <div className="w-full flex items-center justify-between">
+              <div className="w-full flex items-center justify-between ">
                 <h1>Generation Information</h1>
                 <div className="flex justify-center items-center gap-6">
                   <p className="ml-4 text-xl">{isOn ? "Active" : "Inactive"}</p>
@@ -48,7 +48,7 @@ const AddEmployee = () => {
                   <input
                     type="text"
                     placeholder="Your Full name"
-                    className="bg-[#F3F4F6FF] p-2 rounded-md w-full"
+                    className="bg-[#F3F4F6FF] p-2 rounded-md w-full placeholder:text-gray-400"
                   />
                 </div>
                 <div>
@@ -56,12 +56,12 @@ const AddEmployee = () => {
                   <input
                     type="text"
                     placeholder="Work Location"
-                    className="bg-[#F3F4F6FF] p-2 rounded-md w-full"
+                    className="bg-[#F3F4F6FF] p-2 rounded-md w-full placeholder:text-gray-400"
                   />
                 </div>
                 <div>
                   Department
-                  <select className="bg-[#F3F4F6FF] p-2 rounded-md w-full">
+                  <select className="bg-[#F3F4F6FF] p-2 rounded-md w-full ">
                     <option>Select Item</option>
                     <option>Select Item</option>
                     <option>Select Item</option>
@@ -69,7 +69,7 @@ const AddEmployee = () => {
                 </div>
                 <div>
                   Role
-                  <select className="bg-[#F3F4F6FF] p-2 rounded-md w-full">
+                  <select className="bg-[#F3F4F6FF] p-2 rounded-md w-full placeholder:text-gray-400">
                     <option>Role</option>
                   </select>
                 </div>
@@ -78,7 +78,7 @@ const AddEmployee = () => {
                   <input
                     type="text"
                     placeholder="Phone"
-                    className="bg-[#F3F4F6FF] p-2 rounded-md w-full"
+                    className="bg-[#F3F4F6FF] p-2 rounded-md w-full placeholder:text-gray-400"
                   />
                 </div>
                 <div>
@@ -86,14 +86,14 @@ const AddEmployee = () => {
                   <input
                     type="email"
                     placeholder="Email"
-                    className="bg-[#F3F4F6FF] p-2 rounded-md w-full"
+                    className="bg-[#F3F4F6FF] p-2 rounded-md w-full placeholder:text-gray-400"
                   />
                 </div>
                 <div>
                   DOB
                   <input
                     type="date"
-                    className="bg-[#F3F4F6FF] p-2 rounded-md w-full"
+                    className="bg-[#F3F4F6FF] p-2 rounded-md w-full placeholder:text-gray-400"
                   />
                 </div>
                 <div>
@@ -112,22 +112,22 @@ const AddEmployee = () => {
                   <input
                     type="text"
                     placeholder="Address"
-                    className="bg-[#F3F4F6FF] p-2 rounded-md w-full"
+                    className="bg-[#F3F4F6FF] p-2 rounded-md w-full placeholder:text-gray-400"
                   />
                 </div>
               </div>
             </div>
           </div>
-          <div className=" p-6 bg-white shadow-lg my-4">
+          <div className=" p-6 bg-white border border-gray-300 my-4">
             <div className="flex justify-between">
               <h3 className="mt-4 font-semibold flex gap-2.5">
-                <LuUserRound className="text-[#CC7B25FF] size-5 " />
+                <IoPerson className="text-[#CC7B25FF] size-5 fill-[#CC7B25FF]" />
                 Account
               </h3>
               <h3 className="mt-4 font-semibold text-[#CC7B25FF]">Edit</h3>
             </div>
 
-            <div className="flex mt-3.5 flex-col gap-2">
+            <div className="flex mt-3.5 flex-col gap-2 ">
               <div className="flex gap-2 ">
                 <div>
                   Email
@@ -135,7 +135,6 @@ const AddEmployee = () => {
                     type="email"
                     placeholder="example.email@gmail.com"
                     className="bg-[#F3F4F6FF] p-2 rounded-md w-full"
-                    disabled
                   />
                 </div>
                 <div>
@@ -144,20 +143,28 @@ const AddEmployee = () => {
                     type="password"
                     placeholder="********"
                     className="bg-[#F3F4F6FF] p-2 rounded-md w-full"
-                    disabled
                   />
                 </div>
               </div>
-              <label className="flex items-center gap-2 mt-3">
-                <input type="checkbox" /> Receive monthly product updates
+              <label className="items-center gap-3 mt-2">
+                <input type="checkbox" className="accent-amber-400" />
+                <input type="checkbox" class="peer hidden" />
+                See info about people who view my profile
+                <span className="text-[10px]   ">
+                  <br /> Receive monthly product updates
+                </span>
               </label>
-              <label className="flex items-center gap-2 mt-2">
-                <input type="checkbox" /> See info about people who view my
-                profile
+              <label className="items-center gap-3 mt-2">
+                <input type="checkbox" className="accent-amber-400" />{" "}
+                <input type="checkbox" class="peer hidden" />
+                See info about people who view my profile
+                <span className="text-[10px]   ">
+                  <br /> Receive monthly product updates
+                </span>
               </label>
             </div>
           </div>
-          <div className="p-6 bg-white shadow-lg my-4 rounded-[6px] top-[1016px] w-[711px]">
+          <div className="p-6 bg-white border border-gray-300 my-4 rounded-[6px] top-[1016px] w-[711px]">
             <div className="flex py-2 items-center gap-4 top-[16px]">
               <TfiMenuAlt className="fill-[#CC7B25FF]" />
               <div className="font-semibold">Permission</div>

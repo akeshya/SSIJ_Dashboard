@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { IoNotifications } from "react-icons/io5";
 import { GoQuestion } from "react-icons/go";
 import { FaCaretDown } from "react-icons/fa6";
 import profileImg from "../assets/images/users/user-1.jpg";
 import { CiSearch } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
-
+import { HeaderContext } from "../Contexts/HeaderContext.jsx";
 // Header component
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State to control dropdown visibi....
+  const { selectedStatus } = useContext(HeaderContext);
 
   // Toggle the dropdown menu when profile is clicke....
   const toggleDropdown = () => {
@@ -19,7 +20,9 @@ const Header = () => {
   return (
     <div className="flex-1">
       <div className="flex items-center justify-between h-[72px] header-shadow px-4">
-        <span className="text-2xl font-[700] text-[#cc7b25ff]">Dashboard</span>
+        <span className="text-2xl font-[700] text-[#cc7b25ff]">
+          {selectedStatus}
+        </span>
         {/* Shows Dashboard*/}
         <div className="flex items-center justify-center gap-4">
           <div className="flex relative">
