@@ -10,27 +10,33 @@ import { IoIosInformationCircle } from "react-icons/io";
 import { RiAdminFill } from "react-icons/ri";
 import { HiOutlinePhotograph } from "react-icons/hi";
 
+// EmployeeDetails component handles the employee's profile and connection settings
 const EmployeeDetails = () => {
-  const [gender, setGender] = useState("Male");
+  // State hooks to manage form data and connection states
+  const [gender, setGender] = useState("Male"); // Gender state
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
     email: "",
     dob: "",
     location: "",
-    gender: "Male",
+    gender: "Male", // Default gender is Male
     address: "",
   });
+
+  // Connection states for different platforms
   const [googleConnected, setGoogleConnected] = useState(true);
   const [whatsappConnected, setWhatsappConnected] = useState(false);
   const [instagramConnected, setInstagramConnected] = useState(false);
   const [generalActive, setGeneralActive] = useState(false);
 
+  // Handle input change for form fields
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  // Helper function to render toggle buttons for connections (Google, WhatsApp, Instagram)
   const renderToggleButton = (label, state, setState) => (
     <div
       key={label}
@@ -54,16 +60,20 @@ const EmployeeDetails = () => {
 
   return (
     <div className="flex w-full">
+      {/* Sidebar component */}
       <Sidebar />
 
-      {/* Main Content */}
+      {/* Main content area */}
       <div className="flex-1">
         <Header />
 
+        {/* Employee profile and settings */}
         <div className="mt-4 p-6">
           <div className="grid grid-cols-2 gap-8">
+            {/* Left side: Photo and Connect Settings */}
             <div className="w-full">
               <div className="border border-gray-300 rounded-sm pb-8 w-full">
+                {/* Profile Photo Section */}
                 <label className="flex items-center py-4 px-6 text-sm font-medium text-gray-700 border-b border-gray-300">
                   <HiOutlinePhotograph className="w-5 h-5 text-[#CC7B25FF] mr-2" />
                   Photo
@@ -81,6 +91,8 @@ const EmployeeDetails = () => {
                     Remove
                   </button>
                 </div>
+
+                {/* Drag and drop area or file upload button */}
                 <div className="bg-[#FDF7F280] border-2 border-dashed border-orange-300 rounded-lg py-10 px-6 text-center flex flex-col items-center text-orange-500 mx-6">
                   <BsBoxArrowUp />
                   <p className="text-gray-500">Drag & drop your files here</p>
@@ -91,6 +103,7 @@ const EmployeeDetails = () => {
                 </div>
               </div>
 
+              {/* Connect to external platforms */}
               <div className="p-6 mt-6 rounded-sm border border-gray-300">
                 <div className="flex items-center gap-3">
                   <RiAdminFill className="fill-[#CC7B25FF] w-6 h-6" />
@@ -99,6 +112,7 @@ const EmployeeDetails = () => {
                   </h2>
                 </div>
                 <div className="flex flex-col gap-4 mt-4">
+                  {/* Google Connection Toggle */}
                   {renderToggleButton(
                     <div className="flex items-center gap-2">
                       <span className="w-9 h-9 bg-[#FEF1F1FF] flex items-center justify-center rounded-full">
@@ -109,6 +123,8 @@ const EmployeeDetails = () => {
                     googleConnected,
                     setGoogleConnected
                   )}
+
+                  {/* WhatsApp Connection Toggle */}
                   {renderToggleButton(
                     <div className="flex items-center gap-2">
                       <span className="w-9 h-9 bg-[#E5FFEEFF] flex items-center justify-center rounded-full">
@@ -119,6 +135,8 @@ const EmployeeDetails = () => {
                     whatsappConnected,
                     setWhatsappConnected
                   )}
+
+                  {/* Instagram Connection Toggle */}
                   {renderToggleButton(
                     <div className="flex items-center gap-2 hover:bg-[#F8E8D7FF] ">
                       <span className="w-9 h-9 bg-[#F4F5F6FF] flex items-center justify-center rounded-full">
@@ -132,19 +150,21 @@ const EmployeeDetails = () => {
                 </div>
               </div>
             </div>
-            {/* Right Side: Form Fields */}
+
+            {/* Right side: Form fields for employee details */}
             <div className="rounded border-gray-300 border px-8 pt-5 flex-1 w-full">
               <div className="flex justify-between">
-                <div className="flex items-center  gap-3 ">
+                <div className="flex items-center gap-3 ">
                   <IoIosInformationCircle className="fill-[#CC7B25FF] font-se h-5.5 w-5.5" />
                   <h3 className="text-lg font-semibold bg-[#FFFFFFFF] text-gray-800 ">
                     General Information
                   </h3>
                 </div>
-                <div className="flex items-center  gap-1">
+                <div className="flex items-center gap-1">
                   <h3 className="text-lg font-semibold bg-[#FFFFFFFF] text-gray-800 ">
                     Active
                   </h3>
+                  {/* Toggle for active status */}
                   {renderToggleButton(
                     <div className="flex items-center gap-2"></div>,
                     generalActive,
@@ -152,7 +172,10 @@ const EmployeeDetails = () => {
                   )}
                 </div>
               </div>
+
+              {/* Employee general information form fields */}
               <div className="grid grid-cols-2 gap-4 mt-4">
+                {/* Full Name Input */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700">
                     Full Name
@@ -166,6 +189,8 @@ const EmployeeDetails = () => {
                     className="mt-1 block w-full bg-[#F3F4F6FF] rounded-lg px-4 py-2"
                   />
                 </div>
+
+                {/* Location Input */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700">
                     Location
@@ -179,6 +204,8 @@ const EmployeeDetails = () => {
                     className="mt-1 block w-full bg-[#F3F4F6FF] rounded-lg px-4 py-2"
                   />
                 </div>
+
+                {/* Phone Input */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700">
                     Phone
@@ -192,6 +219,8 @@ const EmployeeDetails = () => {
                     className="mt-1 block w-full bg-[#F3F4F6FF] rounded-lg px-4 py-2"
                   />
                 </div>
+
+                {/* Email Input */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700">
                     Email
@@ -205,6 +234,8 @@ const EmployeeDetails = () => {
                     className="mt-1 block w-full bg-[#F3F4F6FF] rounded-lg px-4 py-2"
                   />
                 </div>
+
+                {/* Date of Birth Input */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700">
                     DOB
@@ -217,6 +248,8 @@ const EmployeeDetails = () => {
                     className="mt-1 block w-full bg-[#F3F4F6FF] rounded-lg px-4 py-2"
                   />
                 </div>
+
+                {/* Gender Selection */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700">
                     Gender
@@ -247,6 +280,8 @@ const EmployeeDetails = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Address Input */}
               <div className="mt-4">
                 <label className="block text-sm font-medium text-gray-700">
                   Address
@@ -259,12 +294,60 @@ const EmployeeDetails = () => {
                   className="mt-1 w-full bg-[#F3F4F6FF] rounded-lg px-3 "
                 ></textarea>
               </div>
-              <div>
-                <div></div>
+
+              <div className="flex shadow-none flex-col   mt-4 p-1 rounded-lg ">
+                {/* Table for Name and Role */}
+                <table className="w-full table-auto rounded-lg border-separate border-spacing-0">
+                  <thead>
+                    <tr className="bg-gray-100  text-[#565D6DFF] text-sm font-semibold border border-gray-300 ">
+                      <th className="p-4 text-left border border-gray-300">
+                        Role
+                      </th>
+                      <th className="p-4 text-left border border-gray-300">
+                        Edit
+                      </th>
+                      <th className="p-4 text-left border border-gray-300 ">
+                        View{" "}
+                      </th>
+                      <th className="p-4 text-left border border-gray-300">
+                        Check
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {/* Row for Name */}
+                    <tr className="bg-white border border-gray-300">
+                      <td className="p-4 border border-gray-300">Manager</td>
+
+                      {/* Centering checkboxes within table cells */}
+                      <td className="p-4 border border-gray-300 text-center">
+                        <input
+                          type="checkbox"
+                          className="p-4 border border-gray-300 rounded-md peer-checked:bg-[#CC7B25FF]  .checkbox input:checked + .outer-square {
+  background: #CC7B25FF; /* primary-500 */
+} "
+                        />
+                      </td>
+                      <td className="p-4 border border-gray-300 text-center">
+                        <input
+                          type="checkbox"
+                          className="p-4 border border-gray-300 rounded-md"
+                        />
+                      </td>
+                      <td className="p-4 border border-gray-300 text-center">
+                        <input
+                          type="checkbox"
+                          className="p-4 border border-gray-300 rounded-md"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
 
+          {/* Action Buttons (Cancel and Update) */}
           <div className="flex justify-center space-x-4 mt-6">
             <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg">
               Cancel

@@ -16,13 +16,16 @@ import Vendors from "./screens/Users/Vendors";
 import Workers from "./screens/Users/Workers";
 import Categotie from "./screens/Categorie/Categotie";
 import Createnotification from "./screens/Notification/Createnotification";
-import PastNotification from "./screens/Notification/PastNotification";
 import AddEmployee from "./screens/Users/AddEmployee";
 import AddWorkers from "./screens/Users/AddWorkers";
 import WorkerDetails from "./screens/Users/WorkerDetails";
 import AddVendor from "./screens/Users/AddVendor";
 import RetailerDetails from "./screens/Users/RetailerDetails";
 import EmployeeDetails from "./screens/Users/EmployeeDetails";
+import ProductDetails from "./screens/Product/ProductDetails";
+import NotificationList from "./screens/Notification/NotificationList";
+import Draft from "./screens/Notification/Draft";
+import Reports from "./screens/Report/Report";
 
 const App = () => {
   return (
@@ -37,19 +40,22 @@ const App = () => {
         <Route path="/add-product" element={<AddProduct />} />
         <Route path="/inventory" element={<Inventory />} />
         <Route path="/product-list" element={<ProductList />} />
+        <Route path="/product-details" element={<ProductDetails />} />
         <Route path="/retailers" element={<Retailers />} />
         <Route path="/employees" element={<Employees />} />
         <Route path="/vendors" element={<Vendors />} />
         <Route path="/workers" element={<Workers />} />
         <Route path="/categorie-list" element={<Categotie />} />
         <Route path="/createnotification" element={<Createnotification />} />
-        <Route path="/pastNotification" element={<PastNotification />} />
+        <Route path="/notification-list" element={<NotificationList />} />
+        <Route path="/draft" element={<Draft />} />
         <Route path="/add-employee" element={<AddEmployee />} />
         <Route path="/add-workers" element={<AddWorkers />} />
         <Route path="/worker-details" element={<WorkerDetails />} />
         <Route path="/add-vendor" element={<AddVendor />} />
         <Route path="/retailer-details" element={<RetailerDetails />} />
         <Route path="/employee-details" element={<EmployeeDetails />} />
+        <Route path="/reports" element={<Reports/>} />
       </Routes>
     </HeaderProvider>
   );

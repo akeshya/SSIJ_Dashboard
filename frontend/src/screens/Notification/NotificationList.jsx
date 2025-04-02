@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaFilter, FaPlus } from "react-icons/fa";
 import Sidebar from "../../components/Sidebar";
 import Header from "../../components/Header";
@@ -11,8 +11,14 @@ import imgae6 from "../../assets/productimage/product2.avif";
 import imgae7 from "../../assets/productimage/item4.jpg";
 import imgae8 from "../../assets/banner_Images/image9.jpg";
 import { CiExport, CiImport } from "react-icons/ci";
+import Pagination from "../../components/Pagination";
 
-const Inventory = () => {
+const NotificationList = () => {
+  const [selected, setSelected] = useState("All Notification");
+
+  const handleClick = (status) => {
+    setSelected(status);
+  };
   const products = [
     {
       id: 1,
@@ -96,9 +102,17 @@ const Inventory = () => {
         <div className="flex flex-col w-full">
           <div className="p-3 ">
             <div className="flex p-3 justify-between space-x-4 mb-1 w-full ">
-              <div className="flex items-center space-x-2 border p-2 rounded-md bg-white shadow-sm cursor-pointer">
-                <span className="text-gray-600">Newest</span>
-                <FaFilter className="text-gray-600" />
+              <div className="flex items-center gap-2.5 ">
+                <h2
+                  className={`cursor-pointer ${
+                    selected === "All Notification"
+                      ? "text-amber-500 border-b-2 border-amber-500"
+                      : ""
+                  }`}
+                  onClick={() => handleClick("All Notification")}
+                >
+                  All Notification
+                </h2>
               </div>
 
               <div className="flex items-center space-x-2 gap-5.5">
@@ -109,20 +123,10 @@ const Inventory = () => {
                       <span>Export</span>
                     </button>
                   </div>
-                  <div className="flex text-[#0e0802]">
-                    <button className="flex items-center gap-1.5  ">
-                      <CiImport className="text-lg" />
-                      <span>Import</span>
-                    </button>
-                  </div>
                 </div>
-                <button className="bg-orange-500 text-white px-4 py-2 rounded-md flex items-center space-x-2">
-                  <FaPlus />
-                  <span>Add Product</span>
-                </button>
               </div>
             </div>
-            <div className=" py- rounded-lg overflow-hidden">
+            <div className=" py-2 rounded-lg overflow-hidden">
               <table className="w-full text-left">
                 <thead>
                   <tr className="bg-gray-200 border border-gray-200 text-gray-600 uppercase text-sm">
@@ -179,4 +183,4 @@ const Inventory = () => {
   );
 };
 
-export default Inventory;
+export default NotificationList;

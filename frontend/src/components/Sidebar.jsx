@@ -70,7 +70,7 @@ const Sidebar = () => {
         }`}
         onClick={() => toggleMenuState("isOrder")} // Toggle Orders dropdown on click
       >
-        <HiNumberedList size={24} />
+        <HiNumberedList />
         <span>Orders</span>
         <button className="ml-auto text-orange-600">
           {menuOpenState.isOrder ? "" : ""}
@@ -103,7 +103,7 @@ const Sidebar = () => {
         }`}
         onClick={() => toggleMenuState("isReportOpen")} // Toggle Reports dropdown
       >
-        <FaFileAlt size={24} />
+        <FaFileAlt />
         <span>Reports</span>
         <button className="ml-auto text-orange-600">
           {menuOpenState.isReportOpen ? "" : "9"}
@@ -118,10 +118,13 @@ const Sidebar = () => {
             className={`flex items-center gap-2 px-6 py-2 rounded-xl cursor-pointer ${
               selected === "ReportList" ? "text-amber-500 bg-[#edcda4]" : ""
             }`}
-            onClick={() => handleClick("ReportList")} // Set ReportList as selected
+            onClick={() => {
+              handleClick("ReportList");
+              setSelectedStatus("ReportList"); // Set ReportList as selected
+            }} // Set ReportList as selected
           >
             <FaFileAlt />
-            <Link to="/Reports/Reports-list">Report List</Link>
+            <Link to="/reports">Report List</Link>
           </div>
         </div>
       )}
@@ -133,7 +136,7 @@ const Sidebar = () => {
         }`}
         onClick={() => toggleMenuState("isProduct")} // Toggle Products dropdown
       >
-        <AiFillProduct size={24} />
+        <AiFillProduct />
         <span className="ml-2">Products</span>
         <button className="ml-auto text-orange-600">
           {menuOpenState.isProduct ? "" : "9"}{" "}
@@ -148,7 +151,10 @@ const Sidebar = () => {
             className={`flex items-center gap-2 px-6 py-2 rounded-xl cursor-pointer ${
               selected === "productList" ? "text-amber-500 bg-[#edcda4]" : ""
             }`}
-            onClick={() => handleClick("productList")} // Set ProductList as selected
+            onClick={() => {
+              handleClick("productList");
+              setSelectedStatus("ProductList");
+            }} // Set ProductList as selected
           >
             <BsChevronBarExpand style={{ transform: "rotate(480deg)" }} />
             <Link to="/product-list">Product List</Link>
@@ -157,7 +163,11 @@ const Sidebar = () => {
             className={`flex items-center gap-2 px-6 py-2 rounded-xl cursor-pointer ${
               selected === "inventory" ? "text-amber-500 bg-[#edcda4]" : ""
             }`}
-            onClick={() => handleClick("inventory")} // Set Inventory as selected
+            onClick={() => {
+              handleClick("inventory");
+
+              setSelectedStatus("Inventory");
+            }} // Set Inventory as selected
           >
             <MdOutlineCalendarViewWeek />
             <Link to="/inventory">Inventory</Link>
@@ -166,19 +176,25 @@ const Sidebar = () => {
             className={`flex items-center gap-2 px-6 py-2 rounded-xl cursor-pointer ${
               selected === "addProduct" ? "text-amber-500 bg-[#edcda4]" : ""
             }`}
-            onClick={() => handleClick("addProduct")} // Set AddProduct as selected
+            onClick={() => {
+              handleClick("addProduct");
+              setSelectedStatus("AddProduct"); // Set AddProduct as selected
+            }} // Set AddProduct as selected
           >
             <AiFillProduct />
             <Link to="/add-product">Add Product</Link>
           </div>
           <div
             className={`flex items-center gap-2 px-6 py-2 rounded-xl cursor-pointer ${
-              selected === "" ? "text-amber-500 bg-[#edcda4]" : ""
+              selected === "draft" ? "text-amber-500 bg-[#edcda4]" : ""
             }`}
-            onClick={() => handleClick("")} // Set AddProduct as selected
+            onClick={() => {
+              handleClick("draft");
+              setSelectedStatus("Draft");
+            }} // Set AddProduct as selected
           >
             <BsChevronBarExpand style={{ transform: "rotate(480deg)" }} />
-            <Link to="">Draft</Link>
+            <Link to="/draft">Draft</Link>
           </div>
         </div>
       )}
@@ -205,6 +221,7 @@ const Sidebar = () => {
             }`}
             onClick={() => {
               handleClick("retailers");
+              setSelectedStatus("Retailers");
             }} // Set Retailers as selected
           >
             <PiUsersDuotone />
@@ -216,6 +233,7 @@ const Sidebar = () => {
             }`}
             onClick={() => {
               handleClick("employees");
+              setSelectedStatus("Employees");
             }} // Set Employees as selected
           >
             <PiUsersDuotone />
@@ -227,6 +245,7 @@ const Sidebar = () => {
             }`}
             onClick={() => {
               handleClick("workers");
+              setSelectedStatus("Workers");
             }} // Set Workers as selected
           >
             <PiUsersDuotone />
@@ -238,6 +257,7 @@ const Sidebar = () => {
             }`}
             onClick={() => {
               handleClick("vendors");
+              setSelectedStatus("Vendors");
             }} // Set Vendors as selected
           >
             <PiUsersDuotone />
@@ -269,6 +289,7 @@ const Sidebar = () => {
           }`}
             onClick={() => {
               handleClick("Categorie-list");
+              setSelectedStatus("Categorie-list");
             }} //set Categorie-list is selected
           >
             <LuClock8 />
@@ -281,6 +302,7 @@ const Sidebar = () => {
           }`}
             onClick={() => {
               handleClick("Categorie-list");
+              setSelectedStatus("Categorie-list");
             }} //set Categorie-list is selected
           >
             <LuClock8 />
@@ -306,10 +328,14 @@ const Sidebar = () => {
         <div className="pl-6 mt-2">
           <div
             className={`flex items-center gap-2 px-6 py-2 rounded-xl cursor-pointer ${
-              selected === "notification" ? "text-amber-500 bg-[#edcda4]" : ""
+              selected === "Create-notifications"
+                ? "text-amber-500 bg-[#edcda4]"
+                : ""
             }`}
             onClick={() => {
               toggleMenuState("isNotification");
+              handleClick("Create-notifications");
+              setSelectedStatus("Create-notifications");
             }}
           >
             <PiUsersDuotone />
@@ -317,16 +343,17 @@ const Sidebar = () => {
           </div>
           <div
             className={`flex items-center gap-2 px-6 py-2 rounded-xl cursor-pointer ${
-              selected === "pastNotification"
+              selected === "Notification-list"
                 ? "text-amber-500 bg-[#edcda4]"
                 : ""
             }`}
             onClick={() => {
-              handleClick("pastNotification");
+              handleClick("Notification-list");
+              setSelectedStatus("Notification-list");
             }} // Set Workers as selected
           >
             <PiUsersDuotone />
-            <Link to={"/pastNotification"}>Past Notification</Link>
+            <Link to={"/notification-list"}>Notification List</Link>
           </div>
           <div
             className={`flex items-center gap-2 px-6 py-2 rounded-xl cursor-pointer ${
@@ -334,6 +361,7 @@ const Sidebar = () => {
             }`}
             onClick={() => {
               handleClick("draft");
+              setSelectedStatus("Draft");
             }} // Set Vendors as selected
           >
             <PiUsersDuotone />
@@ -346,7 +374,10 @@ const Sidebar = () => {
         className={`flex items-center gap-2 px-6 py-2 mt-4 rounded-xl cursor-pointer ${
           selected === "settings" ? "text-amber-500 bg-[#edcda4]" : ""
         }`}
-        onClick={() => handleClick("settings")} // Set Settings as selected
+        onClick={() => {
+          handleClick("settings");
+          setSelectedStatus("Settings");
+        }} // Set Settings as selected
       >
         <IoSettings />
         <Link to="/settings">Settings</Link>

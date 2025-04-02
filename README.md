@@ -19,8 +19,6 @@ The **SSIJ Web Application** is a comprehensive web-based platform designed to s
 - **Routing**: React Router
 - **Icons**: React Icons
 - **State Management**: React Context API
-- **Backend**: (Add backend details if applicable)
-- **Database**: (Add database details if applicable)
 
 ### Folder Structure:
 
@@ -34,3 +32,17 @@ The **SSIJ Web Application** is a comprehensive web-based platform designed to s
    ```bash
    git clone https://github.com/your-repo/ssij-web-app.git
    ```
+2. Navigate to the project directory:
+   ```bash
+   cd ssij-web-app/frontend
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+The application should now be running at `http://localhost:5173/` (or another available port).

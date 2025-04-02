@@ -12,7 +12,8 @@ const ForgotPassword = () => {
     // Simple Otp validation
     if (!otp || otp.length !== 6) {
       setError("Please enter a valid 6-digit OTP.");
-      setSuccess("");
+     
+  }; setSuccess("");
       return;
     }
 
@@ -21,7 +22,6 @@ const ForgotPassword = () => {
       setSuccess("OTP successfully verified!");
       setError("");
     }, 1000);
-  };
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
