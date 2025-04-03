@@ -74,11 +74,15 @@ const ProductDetails = () => {
                   <table className="mt-2 w-full  text-left">
                     <thead>
                       <tr className=" ">
-                        <th className="p-2 border border-gray-200 ">Size</th>
-                        <th className="p-2 border border-gray-200">
+                        <th className="p-2 border w-[70px]  border-gray-200 ">
+                          Size
+                        </th>
+                        <th className="p-2 border w-[70px] border-gray-200">
                           Item Weight (grams)
                         </th>
-                        <th className="p-2 border border-gray-200">Quantity</th>
+                        <th className="p-2 border w-[70px] border-gray-200">
+                          Quantity
+                        </th>
                       </tr>
                     </thead>
                     <tbody>

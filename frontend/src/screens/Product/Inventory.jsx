@@ -11,6 +11,7 @@ import imgae6 from "../../assets/productimage/product2.avif";
 import imgae7 from "../../assets/productimage/item4.jpg";
 import imgae8 from "../../assets/banner_Images/image9.jpg";
 import { CiExport, CiImport } from "react-icons/ci";
+import Pagination from "../../components/Pagination";
 
 const Inventory = () => {
   const products = [

@@ -9,7 +9,7 @@ import { HeaderContext } from "../Contexts/HeaderContext.jsx";
 // Header component
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State to control dropdown visibi....
-  const { selectedStatus } = useContext(HeaderContext);
+  const { selectedStatus, selectedSearch } = useContext(HeaderContext);
 
   // Toggle the dropdown menu when profile is clicke....
   const toggleDropdown = () => {
@@ -19,7 +19,7 @@ const Header = () => {
   const navigate = useNavigate();
   return (
     <div className="flex-1">
-      <div className="flex items-center justify-between h-[72px] header-shadow px-4">
+      <div className="flex items-center justify-between h-[72px]  px-4">
         <span className="text-2xl font-[700] text-[#cc7b25ff]">
           {selectedStatus}
         </span>
@@ -29,13 +29,16 @@ const Header = () => {
             {/* Search input box */}
             <input
               type="input"
-              placeholder="Search..."
+              placeholder={selectedSearch}
               className="w-[322px] bg-[#f3eee7] py-1 pl-8 rounded-md placeholder-[#9b6217] placeholder:font-medium"
             />
-            <CiSearch className="absolute top-2 left-2 text-[#9b6217]" />
+          
+          x  {/* <CiSearch className=" top-2 left-2 text-[#9b6217]" /> */}
           </div>
           <div>
-            <IoNotifications className="text-[#CC7B25FF]" />
+            <button>
+              <IoNotifications className="text-[#CC7B25FF] cursor-pointer hover:text-amber-400 " />
+            </button>
           </div>
           <div>
             <GoQuestion className="text-[#CC7B25FF]" />

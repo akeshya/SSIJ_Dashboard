@@ -124,7 +124,7 @@ import { BsBoxArrowUp } from "react-icons/bs";
 import { FaGoogle } from "react-icons/fa";
 import { FaWhatsappSquare } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-
+import { IoIosInformationCircle } from "react-icons/io";
 import { RiAdminFill } from "react-icons/ri";
 
 const AddWorker = () => {
@@ -141,6 +141,7 @@ const AddWorker = () => {
   const [googleConnected, setGoogleConnected] = useState(true);
   const [whatsappConnected, setWhatsappConnected] = useState(false);
   const [instagramConnected, setInstagramConnected] = useState(false);
+  const [ActiveConnected, setActiveonnected] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -249,20 +250,17 @@ const AddWorker = () => {
             </div>
             {/* Right Side: Form Fields */}
             <div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-800">
-                  General Information
-                </h3>
-                {renderToggleButton(
-                  <div className="flex items-center gap-2">
-                    <span className="w-9 h-9 bg-[#E5FFEEFF] flex items-center justify-center rounded-full">
-                      <FaWhatsappSquare className="fill-[#28AF55FF] w-4 h-4" />
-                    </span>
-                    <span>WhatsApp</span>
-                  </div>,
-                  whatsappConnected,
-                  setWhatsappConnected
-                )}
+              <div className="flex justify-between">
+                <div className="flex items-center gap-2 ">
+                  <IoIosInformationCircle className="fill-[#CC7B25FF]" />
+                  <h3 className="text-lg flex font-semibold text-gray-800">
+                    General Information
+                  </h3>
+                </div>
+                <div className="flex gap-1.5 justify-center items-center">
+                  <span className="">Active</span>
+                  {renderToggleButton(ActiveConnected, setActiveonnected)}
+                </div>
               </div>
               <div className="grid grid-cols-2 gap-4 mt-4">
                 <div>

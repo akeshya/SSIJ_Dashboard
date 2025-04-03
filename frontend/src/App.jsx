@@ -14,7 +14,7 @@ import Retailers from "./screens/Users/Retailers";
 import Employees from "./screens/Users/Employees";
 import Vendors from "./screens/Users/Vendors";
 import Workers from "./screens/Users/Workers";
-import Categotie from "./screens/Categorie/Categotie";
+import Categorie from "./screens/Categorie/Categorie";
 import Createnotification from "./screens/Notification/Createnotification";
 import AddEmployee from "./screens/Users/AddEmployee";
 import AddWorkers from "./screens/Users/AddWorkers";
@@ -45,7 +45,7 @@ const App = () => {
         <Route path="/employees" element={<Employees />} />
         <Route path="/vendors" element={<Vendors />} />
         <Route path="/workers" element={<Workers />} />
-        <Route path="/categorie-list" element={<Categotie />} />
+        <Route path="/categorie-list" element={<Categorie />} />
         <Route path="/createnotification" element={<Createnotification />} />
         <Route path="/notification-list" element={<NotificationList />} />
         <Route path="/draft" element={<Draft />} />
@@ -55,7 +55,7 @@ const App = () => {
         <Route path="/add-vendor" element={<AddVendor />} />
         <Route path="/retailer-details" element={<RetailerDetails />} />
         <Route path="/employee-details" element={<EmployeeDetails />} />
-        <Route path="/reports" element={<Reports/>} />
+        <Route path="/reports" element={<Reports />} />
       </Routes>
     </HeaderProvider>
   );

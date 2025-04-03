@@ -15,7 +15,7 @@ import { LuClock8 } from "react-icons/lu";
 
 const Sidebar = () => {
   // Get selected state and setSelected function from HeaderContext
-  const { selected, setSelected, setSelectedStatus } =
+  const { selected, setSelected, setSelectedStatus, setSelectedSearch } =
     useContext(HeaderContext);
 
   // Local state to handle dropdown menu open/close for Products, Reports, Orders, and Users
@@ -56,8 +56,9 @@ const Sidebar = () => {
         }`}
         onClick={() => {
           handleClick("dashboard");
-          setSelectedStatus("Dashboard"); // Set Dashboard as selected
-        }} // Set Dashboard as selected on click
+          setSelectedStatus("Dashboard");
+          setSelectedSearch("Search..");
+        }}
       >
         <RxDashboard />
         <Link to="/">Dashboard</Link>
