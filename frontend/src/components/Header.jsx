@@ -30,10 +30,21 @@ const Header = () => {
             <input
               type="input"
               placeholder={selectedSearch}
-              className="w-[322px] bg-[#f3eee7] py-1 pl-8 rounded-md placeholder-[#9b6217] placeholder:font-medium"
+              style={{
+                width: "100%",
+                borderRadius: "5px",
+              }}
+              className="w-[322px]  bg-[#f3eee7]  py-1 pl-8 rounded-md placeholder-[#9b6217] placeholder:font-medium"
             />
-          
-          x  {/* <CiSearch className=" top-2 left-2 text-[#9b6217]" /> */}
+            <CiSearch
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "10px",
+                transform: "translateY(-50%)",
+              }}
+              className=" top-2 left-2 text-[#9b6217]"
+            />
           </div>
           <div>
             <button>

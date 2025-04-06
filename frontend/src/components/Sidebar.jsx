@@ -15,18 +15,17 @@ import { LuClock8 } from "react-icons/lu";
 
 const Sidebar = () => {
   // Get selected state and setSelected function from HeaderContext
-  const { selected, setSelected, setSelectedStatus, setSelectedSearch } =
-    useContext(HeaderContext);
+  const {
+    selected,
+    setSelected,
+    setSelectedStatus,
+    setSelectedSearch,
+    menuOpenState,
+    setMenuOpenState,
+  } = useContext(HeaderContext);
 
   // Local state to handle dropdown menu open/close for Products, Reports, Orders, and Users
-  const [menuOpenState, setMenuOpenState] = useState({
-    isProduct: false,
-    isReportOpen: false,
-    isOrder: false,
-    isUsers: false,
-    isCategories: false,
-    isNotification: false,
-  });
+  
 
   // Function to handle selection of a menu item
   const handleClick = (status) => {
@@ -89,6 +88,7 @@ const Sidebar = () => {
             onClick={() => {
               handleClick("Orders");
               setSelectedStatus("Orders");
+              setSelectedSearch("Search.. order Id");
             }} // Set Orders as selected
           >
             <HiNumberedList />
@@ -122,6 +122,7 @@ const Sidebar = () => {
             onClick={() => {
               handleClick("ReportList");
               setSelectedStatus("ReportList"); // Set ReportList as selected
+              setSelectedSearch("Search ..ReportList"); // Set ReportList as selected
             }} // Set ReportList as selected
           >
             <FaFileAlt />
@@ -155,6 +156,7 @@ const Sidebar = () => {
             onClick={() => {
               handleClick("productList");
               setSelectedStatus("ProductList");
+              setSelectedSearch("Search ..ProductList");
             }} // Set ProductList as selected
           >
             <BsChevronBarExpand style={{ transform: "rotate(480deg)" }} />
@@ -180,6 +182,7 @@ const Sidebar = () => {
             onClick={() => {
               handleClick("addProduct");
               setSelectedStatus("AddProduct"); // Set AddProduct as selected
+              setSelectedSearch("Search.. AddProduct");
             }} // Set AddProduct as selected
           >
             <AiFillProduct />
@@ -192,6 +195,7 @@ const Sidebar = () => {
             onClick={() => {
               handleClick("draft");
               setSelectedStatus("Draft");
+              setSelectedSearch("Search ..Draft");
             }} // Set AddProduct as selected
           >
             <BsChevronBarExpand style={{ transform: "rotate(480deg)" }} />
@@ -223,6 +227,7 @@ const Sidebar = () => {
             onClick={() => {
               handleClick("retailers");
               setSelectedStatus("Retailers");
+              setSelectedSearch("Search ..Retailers");
             }} // Set Retailers as selected
           >
             <PiUsersDuotone />
@@ -235,6 +240,7 @@ const Sidebar = () => {
             onClick={() => {
               handleClick("employees");
               setSelectedStatus("Employees");
+              setSelectedSearch("Search ..Employees");
             }} // Set Employees as selected
           >
             <PiUsersDuotone />
@@ -247,6 +253,7 @@ const Sidebar = () => {
             onClick={() => {
               handleClick("workers");
               setSelectedStatus("Workers");
+              setSelectedSearch("Search ..Workers");
             }} // Set Workers as selected
           >
             <PiUsersDuotone />
@@ -259,6 +266,7 @@ const Sidebar = () => {
             onClick={() => {
               handleClick("vendors");
               setSelectedStatus("Vendors");
+              setSelectedSearch("Search ..Vendors");
             }} // Set Vendors as selected
           >
             <PiUsersDuotone />
@@ -291,6 +299,7 @@ const Sidebar = () => {
             onClick={() => {
               handleClick("Categorie-list");
               setSelectedStatus("Categorie-list");
+              setSelectedSearch("Search ..Categorie");
             }} //set Categorie-list is selected
           >
             <LuClock8 />
@@ -304,6 +313,7 @@ const Sidebar = () => {
             onClick={() => {
               handleClick("Categorie-list");
               setSelectedStatus("Categorie-list");
+              setSelectedSearch("Search ..Categorie");
             }} //set Categorie-list is selected
           >
             <LuClock8 />
@@ -337,6 +347,7 @@ const Sidebar = () => {
               toggleMenuState("isNotification");
               handleClick("Create-notifications");
               setSelectedStatus("Create-notifications");
+              setSelectedSearch("Search ..notifications");
             }}
           >
             <PiUsersDuotone />
@@ -351,6 +362,7 @@ const Sidebar = () => {
             onClick={() => {
               handleClick("Notification-list");
               setSelectedStatus("Notification-list");
+              setSelectedSearch("Search ..Notification-list");
             }} // Set Workers as selected
           >
             <PiUsersDuotone />
@@ -363,6 +375,7 @@ const Sidebar = () => {
             onClick={() => {
               handleClick("draft");
               setSelectedStatus("Draft");
+              setSelectedSearch("Search ..Draft");
             }} // Set Vendors as selected
           >
             <PiUsersDuotone />
@@ -378,6 +391,7 @@ const Sidebar = () => {
         onClick={() => {
           handleClick("settings");
           setSelectedStatus("Settings");
+          setSelectedSearch("Search ..Settings");
         }} // Set Settings as selected
       >
         <IoSettings />

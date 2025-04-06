@@ -6,6 +6,14 @@ export const HeaderProvider = ({ children }) => {
   const [selected, setSelected] = useState("dashboard");
   const [selectedStatus, setSelectedStatus] = useState("Dashboard");
   const [selectedSearch, setSelectedSearch] = useState("Dashboard");
+  const [menuOpenState, setMenuOpenState] = useState({
+    isProduct: false,
+    isReportOpen: false,
+    isOrder: false,
+    isUsers: false,
+    isCategories: false,
+    isNotification: false,
+  });
   // Function to update the selected component
   return (
     <HeaderContext.Provider
@@ -16,6 +24,8 @@ export const HeaderProvider = ({ children }) => {
         setSelectedStatus,
         selectedSearch,
         setSelectedSearch,
+        menuOpenState,
+        setMenuOpenState,
       }}
     >
       {children}
